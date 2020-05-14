@@ -3,6 +3,7 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { FiLock, FiUser, FiMail, FiArrowLeft } from 'react-icons/fi';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 import getvalidationErrors from '../../utils/getValidationErrors';
 
@@ -11,7 +12,7 @@ import Input from '../../components/Input';
 
 import logoImg from '../../assets/logo.svg';
 
-import { Container, Content, Background } from './styles';
+import { Container, Content, AnimatedContainer, Background } from './styles';
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -44,27 +45,29 @@ const SignUp: React.FC = () => {
       <Background />
 
       <Content>
-        <img src={logoImg} alt="GoBarber" />
+        <AnimatedContainer>
+          <img src={logoImg} alt="GoBarber" />
 
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu cadastro</h1>
-          <Input name="name" icon={FiUser} placeholder="Nome" />
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Faça seu cadastro</h1>
+            <Input name="name" icon={FiUser} placeholder="Nome" />
 
-          <Input name="email" icon={FiMail} placeholder="E-mail" />
+            <Input name="email" icon={FiMail} placeholder="E-mail" />
 
-          <Input
-            name="password"
-            icon={FiLock}
-            type="password"
-            placeholder="Senha"
-          />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Senha"
+            />
 
-          <Button type="submit">Cadastrar</Button>
-        </Form>
-        <a href="signUp">
-          <FiArrowLeft />
-          Voltar para login
-        </a>
+            <Button type="submit">Cadastrar</Button>
+          </Form>
+          <Link to="/">
+            <FiArrowLeft />
+            Voltar para login
+          </Link>
+        </AnimatedContainer>
       </Content>
     </Container>
   );
