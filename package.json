@@ -12,6 +12,7 @@
     "@types/react-dom": "^16.9.0",
     "@unform/core": "^2.1.0",
     "@unform/web": "^2.1.0",
+    "axios": "^0.19.2",
     "polished": "^3.6.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -19,6 +20,7 @@
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0",
     "typescript": "~3.7.2",
+    "uuidv4": "^6.0.8",
     "yup": "^0.28.5"
   },
   "scripts": {
