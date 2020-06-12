@@ -31,7 +31,6 @@ const ResetPassword: React.FC = () => {
 
   const { addToast } = useToast();
 
-  console.log(location.search);
   const handleSubmit = useCallback(
     async (data: ResetPasswordFormData) => {
       try {
