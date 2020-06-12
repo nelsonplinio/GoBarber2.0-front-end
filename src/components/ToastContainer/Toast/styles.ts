@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { animated } from 'react-spring';
 
 interface ContainerProps {
-  hasDescription: boolean;
+  hasDescription: number;
   type?: 'error' | 'success' | 'info';
 }
 
