@@ -1,7 +1,25 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { shade } from 'polished';
 
-export const Container = styled.button`
+interface ContainerProps {
+  loading?: number;
+}
+
+const pulseAnimation = keyframes`
+  0% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.65;
+  }
+`;
+
+export const Container = styled.button<ContainerProps>`
   background: #ff9000;
   height: 56px;
   border-radius: 10px;
@@ -15,4 +33,11 @@ export const Container = styled.button`
   &:hover {
     background: ${shade(0.2, '#ff9000')};
   }
+
+  ${({ loading }) =>
+    loading &&
+    css`
+      animation: ${pulseAnimation} 1s infinite;
+      cursor: not-allowed;
+    `}
 `;
