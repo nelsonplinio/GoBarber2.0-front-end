@@ -17,11 +17,19 @@ export const HeaderContent = styled.div`
   > img {
     height: 80px;
   }
+`;
 
+export const HeaderActionContent = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: auto;
   button {
-    margin-left: auto;
     background: transparent;
     border: 0;
+
+    & + button {
+      margin-left: 16px;
+    }
 
     svg {
       color: #999591;
@@ -78,6 +86,7 @@ export const Schedule = styled.div`
     font-weight: bold;
     span {
       position: relative;
+      text-transform: capitalize;
     }
 
     span + span {
@@ -279,4 +288,10 @@ export const Calendar = styled.aside`
     border-radius: 10px;
     color: #232129 !important;
   }
+`;
+
+export const EmptyText = styled.strong`
+  color: #666360;
+  font-size: 22px;
+  border: 0 !important;
 `;

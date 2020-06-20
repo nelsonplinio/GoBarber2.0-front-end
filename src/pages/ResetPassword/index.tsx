@@ -79,7 +79,7 @@ const ResetPassword: React.FC = () => {
         setLoading(false);
       }
     },
-    [history, addToast],
+    [history, location.search, addToast],
   );
 
   return (
