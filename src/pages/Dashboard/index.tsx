@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import DayPicker, { DayModifiers } from 'react-day-picker';
 import { FiPower, FiClock, FiUser } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
 import {
   isToday,
   isAfter,
@@ -62,6 +63,7 @@ interface ScheduleDayPeriod {
 }
 
 const Dashboard: React.FC = () => {
+  const history = useHistory();
   const { signOut, user } = useAuth();
 
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -202,7 +204,7 @@ const Dashboard: React.FC = () => {
           </Profile>
 
           <HeaderActionContent>
-            <button type="button" onClick={() => signOut()}>
+            <button type="button" onClick={() => history.push('/profile')}>
               <FiUser />
             </button>
             <button type="button" onClick={() => signOut()}>
