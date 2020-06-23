@@ -1,4 +1,10 @@
-import React, { createContext, useCallback, useContext, useState } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+  useEffect,
+} from 'react';
 import api from '../services/api';
 
 interface User {
@@ -20,6 +26,7 @@ interface SignInCredentials {
 interface AuthContextData {
   user: User;
   signOut(): void;
+  updateUser(user: Partial<User>): void;
   signIn(credentials: SignInCredentials): Promise<void>;
 }
 
@@ -46,22 +53,37 @@ const AuthProvider: React.FC = ({ children }) => {
 
     const { token, user } = response.data;
 
-    localStorage.setItem('@GoBarber:token', token);
-    localStorage.setItem('@GoBarber:user', JSON.stringify(user));
-
     api.defaults.headers.authorization = `Bearer ${token}`;
 
     setData({ token, user });
   }, []);
 
   const signOut = useCallback(() => {
-    localStorage.removeItem('@GoBarber:token');
-    localStorage.removeItem('@GoBarber:user');
     setData({} as AuthState);
   }, []);
 
+  const updateUser = useCallback(
+    (userUpdate: Partial<User>) => {
+      setData({
+        token: data.token,
+        user: {
+          ...data.user,
+          ...userUpdate,
+        },
+      });
+    },
+    [data, setData],
+  );
+
+  useEffect(() => {
+    localStorage.setItem('@GoBarber:token', data.token);
+    localStorage.setItem('@GoBarber:user', JSON.stringify(data.user));
+  }, [data]);
+
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{ user: data.user, signIn, signOut, updateUser }}
+    >
       {children}
     </AuthContext.Provider>
   );
