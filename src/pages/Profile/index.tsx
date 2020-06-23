@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useEffect, ChangeEvent } from 'react';
+import React, { useCallback, useRef, useState, ChangeEvent } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { FiLock, FiUser, FiMail, FiCamera, FiArrowLeft } from 'react-icons/fi';
@@ -27,6 +27,7 @@ const Profile: React.FC = () => {
   const { addToast } = useToast();
   const history = useHistory();
   const { user, updateUser } = useAuth();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = useCallback(
     async (data: ProfileData) => {
@@ -56,6 +57,8 @@ const Profile: React.FC = () => {
         await schema.validate(data, {
           abortEarly: false,
         });
+
+        setLoading(true);
 
         const {
           name,
@@ -99,9 +102,11 @@ const Profile: React.FC = () => {
           title: 'Erro na atualização',
           description: 'Deu um erro ao atualizar seu perfil, tente novamente.',
         });
+      } finally {
+        setLoading(false);
       }
     },
-    [history, addToast],
+    [history, addToast, updateUser],
   );
 
   const handleAvatarChange = useCallback(
@@ -185,7 +190,9 @@ const Profile: React.FC = () => {
             placeholder="Confirma senha"
           />
 
-          <Button type="submit">Confirmar mudanças</Button>
+          <Button type="submit" loading={loading} loadingText="Atualizando...">
+            Confirmar mudanças
+          </Button>
         </Form>
       </Content>
     </Container>
