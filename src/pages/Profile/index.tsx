@@ -36,15 +36,19 @@ const Profile: React.FC = () => {
 
         const schema = Yup.object().shape({
           name: Yup.string().required('O nome obrigatório'),
+
           email: Yup.string()
             .email('Digite um e-mail válido')
             .required('E-mail obrigatório'),
+
           old_password: Yup.string(),
+
           password: Yup.string().when('old_password', {
             is: val => !!val.length,
             then: Yup.string().required('Campo obrigatório'),
             otherwise: Yup.string().notRequired(),
           }),
+
           password_confirmation: Yup.string()
             .when('old_password', {
               is: val => !!val.length,

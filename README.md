@@ -1,44 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<h1 align="center">
+    <img alt="GoBarber" src="./screenshots/logo.png" width="260px" style="border-radius: 10px"/>
+</h1>
 
-In the project directory, you can run:
+<h3 align="center">
+  🪒 GoBarber 2.0 💈
+</h3>
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🔍 Sobre
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Uma aplicação desenvolvida na nova jornada do GoStack, que a parte web tem como finalidade ser um painel dos prestadores de serviços da barbearia poderem ver seus agendamentos que foi feito por seus clientes. Está painel foi desenvolvido utilizando <a href="https://reactjs.org/">React JS</a> e <a href="https://www.typescriptlang.org/">TypeScript</a> com varios padrões de arquitetura de software para que o código e a estrutura de pastas fique mais facil.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔗 Conjunto da obra
 
-### `yarn build`
+  -  <strong> <a href='https://github.com/nelsonplinio/GoBarber2.0-back-end'> API GoBarber  </a> </strong> - Feita em node.JS e Typescript
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-  <strong> <a href='https://github.com/nelsonplinio/GoBarber2.0-mobile'> APP GoBarber  </a> </strong> - Feita em React Native e Typescript
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## ⚙️ Oque foi utilizado
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - React JS
+  - React hooks
+  - TypeScript
+  - unform
+  - Axios
+  - polished
+  - eslint
+  - prettier
+  - styled-components
+  - react-icons
+  - react-router-dom
+  - yup
+  - react-day-picker
 
-### `yarn eject`
+## 📷 Imagens
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img src='screenshots/banner.png' >
+<img src='screenshots/login_page.png' >
+<img src='screenshots/sign_up_page.png' >
+<img src='screenshots/forgot_password_page.png' >
+<img src='screenshots/dashboard_page.png' >
+<img src='screenshots/profile_page.png' >
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🚀 Instalar e usar
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+###### Clone o respostiorio.
+``git@github.com:nelsonplinio/GoBarber2.0-front-end.git``
 
-## Learn More
+###### Instalar as dependencias.
+``cd GoBarber2.0-front-end ``
+`` yarn ou npm install``
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+###### Instalar as dependencias.
+``yarn start ou npm run start ``
